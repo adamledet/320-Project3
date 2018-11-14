@@ -1,0 +1,28 @@
+TO DO:
+
+--Enemy Spawn
+	-Let enemies spawn from enemy spawns.
+	-Add a delay to spawn.
+	-Make spawns random
+
+--Enemies
+	-Pathfinding toward the Player
+	-Movement
+	-Take Damage rom collision /w/ player bullet
+	-Destroy enemy on collision /w/ Player (for now)
+
+--Player
+	-Player ranged shoot attack
+	-Take damage on collision /w/ enemy
+	-Have health / score
+
+--UI
+	-Display Health
+	-Display Score
+	-Display number of enemies
+	-Cursor location UI
+
+--Create Environment (using Maya or Unity 3D Assets)
+	-Make Warehouse
+	-Enemy Design
+	-Possible obstacles / shelfs / boxes
