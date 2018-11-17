@@ -46,7 +46,9 @@ public class SpawnEnemies : MonoBehaviour {
     //Spawn a new enemy of a certain type
     void Spawn(GameObject unit)
     {
-        Instantiate(unit, new Vector3(transform.position.x, transform.position.y + 10, transform.position.z), Quaternion.identity);
+        float xOffset = Random.Range(-4, 4);
+        float zOffset = Random.Range(-4, 4);
+        Instantiate(unit, new Vector3(transform.position.x + xOffset, transform.position.y + 5, transform.position.z + zOffset), Quaternion.identity);
         spawnedEnemies += 1;
     }
 }

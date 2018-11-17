@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour {
 	void OnEnable()
 	{
 		// this is temporary, im pretty sure calling find is expensive in terms of processing, will do this another way later
-		target = GameObject.Find("FPSController");
+		target = GameObject.Find("Player");
 	}
 
 	// Update is called once per frame
