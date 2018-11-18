@@ -9,8 +9,25 @@ public class EnemyController : MonoBehaviour {
 	private CharacterController characterController;
 	// once we have more code for the player we might change this
 	private GameObject target;
+	//the enemies health
+	private int health;
 
-    //SPeed Controller
+	public int Health
+	{
+		get
+		{
+			return health;
+		}
+		set
+		{
+			health = value;
+		}
+	}
+	
+	//The enemies max health
+	public int maxHealth;
+
+    //Speed Controller
 	public float maxSpeed;
 
 
@@ -36,5 +53,21 @@ public class EnemyController : MonoBehaviour {
 			desiredVelocity += Physics.gravity;
 		}
 		characterController.Move(desiredVelocity *Time.deltaTime);
+	}
+
+	public void Damage(int damage)
+	{
+		health -= damage;
+		if(health <= 0)
+		{
+			Die();
+		}
+	}
+
+	public void Die()
+	{
+		EnemyManager manager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+		Object.Destroy(gameObject);
+		manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
 	}
 }

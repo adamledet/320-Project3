@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlayerCollisions : MonoBehaviour {
 
     //Attributes
-    GameObject enemyManager;
+    EnemyManager enemyManager;
 
 	// Use this for initialization
 	void Start ()
     {
-        enemyManager = GameObject.Find("EnemyManager");
+		//we should make enemy manager a singleton
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 	}
 	
 	// Update is called once per frame
@@ -25,8 +26,16 @@ public class PlayerCollisions : MonoBehaviour {
         //Destroy enemy on collision /w/ Player (for now) and reduce a random spawn's counter by 1
         if (col.gameObject.tag == "Enemy")
         {
-            Destroy(col.gameObject);
-            enemyManager.GetComponent<EnemyManager>().enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+			EnemyController controller = col.gameObject.GetComponent<EnemyController>();
+			if (controller != null)
+			{
+				controller.Die();
+			}
+			else
+			{
+				Destroy(col.gameObject);
+				enemyManager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+			}
         }
     }
 }

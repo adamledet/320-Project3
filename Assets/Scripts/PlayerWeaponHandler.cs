@@ -20,8 +20,20 @@ public class PlayerWeaponHandler : MonoBehaviour {
         RaycastHit target;
         if(Physics.Raycast(castOrigin, fpsCamera.transform.forward, out target, range))
         {
-            //code to damage goes here
-
+			//code to damage goes here
+			EnemyController enemy = target.collider.GetComponent<EnemyController>();
+			if(enemy != null)
+			{
+				enemy.Damage(damage);
+			}
         }
     }
+
+	void Update()
+	{
+		if (Input.GetButtonDown("Fire1"))
+		{
+			RaycastFire(1, 1000);
+		}
+	}
 }
