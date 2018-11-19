@@ -7,6 +7,21 @@ public class PlayerCollisions : MonoBehaviour {
     //Attributes
     EnemyManager enemyManager;
 
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
+
+        set
+        {
+            health = value;
+        }
+    }
+
+    private int health;
+
 	// Use this for initialization
 	void Start ()
     {
