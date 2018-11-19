@@ -70,4 +70,12 @@ public class EnemyController : MonoBehaviour {
 		Object.Destroy(gameObject);
 		manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
 	}
+
+	void OnControllerColliderHit(ControllerColliderHit col)
+	{
+		if (col.gameObject.tag == "Player")
+		{
+			col.gameObject.GetComponent<PlayerCollisions>().CollideWithEnemy(this);
+		}
+	}
 }

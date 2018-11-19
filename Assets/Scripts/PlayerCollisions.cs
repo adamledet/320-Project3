@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCollisions : MonoBehaviour {
 
     //Attributes
-    EnemyManager enemyManager;
+    private EnemyManager enemyManager;
+
+	public Slider healthBar;
+
+	public int maxHealth;
 
     public int Health
     {
@@ -25,6 +30,8 @@ public class PlayerCollisions : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+		health = maxHealth;
+		healthBar.maxValue = maxHealth;
 		//we should make enemy manager a singleton
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 	}
@@ -32,19 +39,21 @@ public class PlayerCollisions : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		
+		healthBar.value = health;
 	}
-    
-    //Triggers when the Plyaer runs into an enemy (doesn't trigger when an enemy runs into the player)
-    void OnControllerColliderHit(ControllerColliderHit col)
+
+	//Triggers when the Plyaer runs into an enemy (doesn't trigger when an enemy runs into the player)
+	void OnControllerColliderHit(ControllerColliderHit col)
     {
         //Destroy enemy on collision /w/ Player (for now) and reduce a random spawn's counter by 1
         if (col.gameObject.tag == "Enemy")
         {
+			Debug.Log("hit");
 			EnemyController controller = col.gameObject.GetComponent<EnemyController>();
 			if (controller != null)
 			{
-				controller.Die();
+				CollideWithEnemy(controller);
+				//controller.Die();
 			}
 			else
 			{
@@ -53,4 +62,11 @@ public class PlayerCollisions : MonoBehaviour {
 			}
         }
     }
+
+	// if we add more enemy tips we can handle different forms of collision here
+	public void CollideWithEnemy(EnemyController enemy)
+	{
+		health -= 10;
+		enemy.Die();
+	}
 }
