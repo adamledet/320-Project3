@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerWeaponHandler : MonoBehaviour {
 
-   //public Transform gunEnd;
-
+    //public Transform gunEnd;
     private Camera fpsCamera;
 
     private void Awake()
@@ -31,7 +31,7 @@ public class PlayerWeaponHandler : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
 		{
 			RaycastFire(1, 1000);
 		}

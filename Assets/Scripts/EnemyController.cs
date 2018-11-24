@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour {
 		characterController.Move(desiredVelocity *Time.deltaTime);
 	}
 
+    //Take Damage
 	public void Damage(int damage)
 	{
 		health -= damage;
@@ -64,13 +65,21 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+    //Destroy Self. Triggered when health <= 0 or colliding /w/ Player
 	public void Die()
 	{
+        //If this unit is killed by having its health reduced, increase score
+        if (health <= 0)
+        {
+            target.GetComponent<ScoreManager>().score += 1;
+            target.GetComponent<ScoreManager>().UpdateScore();
+        }
 		EnemyManager manager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 		Object.Destroy(gameObject);
 		manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
 	}
 
+    //Collision /w/ Player
 	void OnControllerColliderHit(ControllerColliderHit col)
 	{
 		if (col.gameObject.tag == "Player")
