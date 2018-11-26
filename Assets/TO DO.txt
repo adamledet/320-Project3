@@ -8,18 +8,17 @@ TO DO:
 --Enemies
 	-(DONE) Pathfinding toward the Player
 	-(DONE) Movement
-	-(DONE) Take Damage on collision /w/ player bullet
-	-(DONE) Destroy enemy on collision /w/ Player (for now)
+	-Take Damage on collision /w/ player bullet
+	-Destroy enemy on collision /w/ Player (for now)
 
 --Player
-	-(DONE) Player ranged shoot attack
-	-(DONE) Take damage on collision /w/ enemy
-	-(DONE) Have health / score
-	-Cause GameOver when health is at 0
+	-Player ranged shoot attack
+	-Take damage on collision /w/ enemy
+	-Have health / score
 
 --UI
-	-(DONE) Display Health
-	-(DONE) Display Score
+	-Display Health
+	-Display Score
 	-Display number of enemies
 	-Cursor location UI
 
@@ -28,9 +27,13 @@ TO DO:
 	-Enemy Design
 	-Possible obstacles / shelfs / boxes
 
---Menus
-	-Title Screen
-	-How to Play
-	-Restart
-	-Game Over Screen
-	-Pause
+--Weapones
+	-Pistol
+		-(DONE) Programing
+		-Model
+	-Shield
+		-Programing
+		-vfx
+	-FireBall
+		-programing
+		-vfx
