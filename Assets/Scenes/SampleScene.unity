@@ -275,7 +275,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 55
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalRotation.x
@@ -567,7 +567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -55
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalRotation.x
@@ -606,7 +606,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -55
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1551,7 +1551,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 55
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4420503602373732, guid: 067537b22b7790549a7e81d5a7723ac1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2091,6 +2091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856f0a84b452d2a4d972838d6ea1f7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  scoreDisplay: {fileID: 6407716}
 --- !u!136 &2072836201
 CapsuleCollider:
   m_ObjectHideFlags: 0

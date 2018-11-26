@@ -53,6 +53,10 @@ public class EnemyController : MonoBehaviour {
 			desiredVelocity += Physics.gravity;
 		}
 		characterController.Move(desiredVelocity *Time.deltaTime);
+
+        //Kill self if I fall off the edge of the map
+        if (transform.position.y < -30)
+            Die();
 	}
 
     //Take Damage
