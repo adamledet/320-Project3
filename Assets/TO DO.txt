@@ -26,3 +26,14 @@ TO DO:
 	-Make Warehouse
 	-Enemy Design
 	-Possible obstacles / shelfs / boxes
+
+--Weapones
+	-Pistol
+		-(DONE) Programing
+		-Model
+	-Shield
+		-Programing
+		-vfx
+	-FireBall
+		-programing
+		-vfx
