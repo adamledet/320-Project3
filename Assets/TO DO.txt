@@ -32,7 +32,7 @@ TO DO:
 		-(DONE) Programing
 		-Model
 	-Shield
-		-Programing
+		-(Done) Programing
 		-vfx
 	-FireBall
 		-programing

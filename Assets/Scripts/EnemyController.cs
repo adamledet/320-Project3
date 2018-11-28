@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour {
 	//the enemies health
 	private int health;
 
+	private Vector3 KnockBack;
+
 	public int Health
 	{
 		get
@@ -35,6 +37,7 @@ public class EnemyController : MonoBehaviour {
 	void Start ()
     {
         health = 1;
+		KnockBack = Vector3.zero;
 		characterController = GetComponent<CharacterController>();
 	}
 
@@ -47,14 +50,22 @@ public class EnemyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// this is also temporary, in future will make this more fleshed out
-        //Move toward the target
-		Vector3 toTarget = target.transform.position - this.transform.position;
-		Vector3 desiredVelocity = toTarget.normalized * maxSpeed;
-		if (!characterController.isGrounded)
+		//Move toward the target
+		if (KnockBack.magnitude > 0.2)
 		{
-			desiredVelocity += Physics.gravity;
+			characterController.Move(KnockBack * Time.deltaTime);
+			KnockBack = Vector3.Lerp(KnockBack, Vector3.zero, 5*Time.deltaTime);
 		}
-		characterController.Move(desiredVelocity *Time.deltaTime);
+		else
+		{
+			Vector3 toTarget = target.transform.position - this.transform.position;
+			Vector3 desiredVelocity = toTarget.normalized * maxSpeed;
+			if (!characterController.isGrounded)
+			{
+				desiredVelocity += Physics.gravity;
+			}
+			characterController.Move(desiredVelocity * Time.deltaTime);
+		}
 
         //Kill self if I fall off the edge of the map
         if (transform.position.y < -30)
@@ -71,6 +82,11 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+
+	public void AddKnockBack(Vector3 direction, float force)
+	{
+		KnockBack = direction.normalized * force;
+	}
     //Destroy Self. Triggered when health <= 0 or colliding /w/ Player
 	public void Die()
 	{

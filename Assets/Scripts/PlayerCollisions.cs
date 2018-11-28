@@ -45,7 +45,6 @@ public class PlayerCollisions : MonoBehaviour {
         //Destroy enemy on collision /w/ Player (for now) and reduce a random spawn's counter by 1
         if (col.gameObject.tag == "Enemy")
         {
-			Debug.Log("hit");
 			EnemyController controller = col.gameObject.GetComponent<EnemyController>();
 			if (controller != null)
 			{
