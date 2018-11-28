@@ -32,7 +32,9 @@ public class EnemyController : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        health = 1;
 		characterController = GetComponent<CharacterController>();
 	}
 

@@ -19,6 +19,6 @@ public class ScoreManager : MonoBehaviour {
 	// Update Score Display
     public void UpdateScore()
     {
-        scoreDisplay.GetComponent<Text>().text = "Score: " + score;
+        scoreDisplay.GetComponent<Text>().text = score.ToString();
     }
 }

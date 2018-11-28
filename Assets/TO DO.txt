@@ -9,18 +9,18 @@ TO DO:
 	-(DONE) Pathfinding toward the Player
 	-(DONE) Movement
 	-Take Damage on collision /w/ player bullet
-	-Destroy enemy on collision /w/ Player (for now)
+	-(DONE) Destroy enemy on collision /w/ Player (for now)
 
 --Player
-	-Player ranged shoot attack
-	-Take damage on collision /w/ enemy
-	-Have health / score
+	-(DONE) Player ranged shoot attack
+	-(DONE) Take damage on collision /w/ enemy
+	-(DONE) Have health / score
 
 --UI
-	-Display Health
-	-Display Score
+	-(DONE) Display Health
+	-(DONE) Display Score
 	-Display number of enemies
-	-Cursor location UI
+	-(DONE) Cursor location UI
 
 --Create Environment (using Maya or Unity 3D Assets)
 	-Make Warehouse
