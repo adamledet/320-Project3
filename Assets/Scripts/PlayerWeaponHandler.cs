@@ -12,12 +12,27 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	public WeaponScript weapon;
 	public WeaponScript spell;
 
+    //Mana Attributes
+    public float maxMana;
+    float mana;
+    public float spellCost;
+    public float manaRegenRate;
+    public Slider manaMeter;
+
 	private void Awake()
     {
         fpsCamera = Camera.main;
     }
 
-	public void RaycastFire(int damage, float range, float force)
+    private void Start()
+    {
+        mana = maxMana;
+        manaMeter.maxValue = maxMana;
+        manaMeter.value = mana;
+    }
+
+
+    public void RaycastFire(int damage, float range, float force)
     {
         Vector3 castOrigin = fpsCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         RaycastHit target;
@@ -35,13 +50,27 @@ public class PlayerWeaponHandler : MonoBehaviour {
 
 	void Update()
 	{
-        if (Input.GetButtonDown("Fire1"))
+        //Mana Regeneration
+        if (mana < maxMana)
+            mana += manaRegenRate;
+        else
+            mana = maxMana;
+
+        manaMeter.value = mana;
+
+
+        if (Input.GetButtonDown("Fire1"))//Pistol Fire
 		{
 			weapon.FireWeapon(this);
 		}
-		if (Input.GetButtonDown("Fire2"))
+		if (Input.GetButtonDown("Fire2"))//Force Push
 		{
-			spell.FireWeapon(this);
+            //Cast spell if enought mana. 
+            if(mana >= spellCost)
+            {
+                spell.FireWeapon(this);
+                mana -= spellCost;
+            }
 		}
 	}
 }
