@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyCollisions : MonoBehaviour {
 
     //Attributes
-    GameObject enemyManager;
+    EnemyManager enemyManager;
 
     // Use this for initialization
     void Start ()
     {
-        enemyManager = GameObject.Find("EnemyManager");
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
 	
 	// Update is called once per frame
@@ -25,7 +25,8 @@ public class EnemyCollisions : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            enemyManager.GetComponent<EnemyManager>().enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+            enemyManager.RegisterDeath();
+            //enemyManager.GetComponent<EnemyManager>().enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
         }
     }
 }

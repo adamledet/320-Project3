@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour {
 
-    public List<GameObject> enemySpawns;
+    public List<SpawnEnemies> enemySpawns;
 
 	// Use this for initialization
 	void Start ()
@@ -16,4 +16,9 @@ public class EnemyManager : MonoBehaviour {
     {
 		
 	}
+
+    public void RegisterDeath()
+    {
+        enemySpawns[Random.Range(0, enemySpawns.Count)].spawnedEnemies -= 1;
+    }
 }
