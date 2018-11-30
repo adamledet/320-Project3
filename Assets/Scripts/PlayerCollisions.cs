@@ -63,7 +63,8 @@ public class PlayerCollisions : MonoBehaviour {
 			else
 			{
 				Destroy(col.gameObject);
-				enemyManager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+                //enemyManager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+                enemyManager.RegisterDeath();
 			}
         }
     }

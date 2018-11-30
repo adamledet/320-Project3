@@ -98,7 +98,8 @@ public class EnemyController : MonoBehaviour {
         }
 		EnemyManager manager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 		Object.Destroy(gameObject);
-		manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+        //manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+        manager.RegisterDeath();
 	}
 
     //Collision /w/ Player
