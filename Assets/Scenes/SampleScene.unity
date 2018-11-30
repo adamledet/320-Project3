@@ -2091,6 +2091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856f0a84b452d2a4d972838d6ea1f7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  scoreDisplay: {fileID: 6407716}
 --- !u!136 &2072836201
 CapsuleCollider:
   m_ObjectHideFlags: 0
