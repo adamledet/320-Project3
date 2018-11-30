@@ -5,7 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Spell/ShieldSpell")]
 public class ShieldSpell : WeaponScript
 {
+	public float manaCost;
 	public float radius;
+
+	public override bool CanFire(PlayerWeaponHandler weaponHandler)
+	{
+		return weaponHandler.Mana >= manaCost;
+	}
+
 	public override void FireWeapon(PlayerWeaponHandler weaponHandler)
 	{
 		Vector3 playerPosition = weaponHandler.transform.position;
@@ -18,5 +25,6 @@ public class ShieldSpell : WeaponScript
 				target.GetComponent<EnemyController>().AddKnockBack(target.transform.position - playerPosition, radius - distance);
 			}
 		}
+		weaponHandler.Mana -= manaCost;
 	}
 }
