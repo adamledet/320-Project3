@@ -9,12 +9,15 @@ public class PlayerWeaponHandler : MonoBehaviour {
     //public Transform gunEnd;
     private Camera fpsCamera;
 
-    private void Awake()
+	public WeaponScript weapon;
+	public WeaponScript spell;
+
+	private void Awake()
     {
         fpsCamera = Camera.main;
     }
 
-    public void RaycastFire(int damage, float range)
+	public void RaycastFire(int damage, float range, float force)
     {
         Vector3 castOrigin = fpsCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         RaycastHit target;
@@ -25,6 +28,7 @@ public class PlayerWeaponHandler : MonoBehaviour {
 			if(enemy != null)
 			{
 				enemy.Damage(damage);
+				enemy.AddKnockBack(fpsCamera.transform.forward, force);
 			}
         }
     }
@@ -33,7 +37,11 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	{
         if (Input.GetButtonDown("Fire1"))
 		{
-			RaycastFire(1, 1000);
+			weapon.FireWeapon(this);
+		}
+		if (Input.GetButtonDown("Fire2"))
+		{
+			spell.FireWeapon(this);
 		}
 	}
 }

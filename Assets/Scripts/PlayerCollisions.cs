@@ -7,11 +7,9 @@ public class PlayerCollisions : MonoBehaviour {
 
     //Attributes
     private EnemyManager enemyManager;
-
+    public GameObject gameOverScreen;
 	public Slider healthBar;
-
 	public int maxHealth;
-
     public int Health
     {
         get
@@ -24,7 +22,6 @@ public class PlayerCollisions : MonoBehaviour {
             health = value;
         }
     }
-
     private int health;
 
 	// Use this for initialization
@@ -48,7 +45,6 @@ public class PlayerCollisions : MonoBehaviour {
         //Destroy enemy on collision /w/ Player (for now) and reduce a random spawn's counter by 1
         if (col.gameObject.tag == "Enemy")
         {
-			Debug.Log("hit");
 			EnemyController controller = col.gameObject.GetComponent<EnemyController>();
 			if (controller != null)
 			{
@@ -68,5 +64,12 @@ public class PlayerCollisions : MonoBehaviour {
 	{
 		health -= 10;
 		enemy.Die();
+
+        //Kill the Player if out of health
+        if (health <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            gameOverScreen.GetComponentInChildren<Text>().text = "Score: " + this.GetComponent<ScoreManager>().score;
+        }
 	}
 }
