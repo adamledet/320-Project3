@@ -37,6 +37,15 @@ public class PlayerCollisions : MonoBehaviour {
 	void Update ()
     {
 		healthBar.value = health;
+
+        //After falling off the stage, take damage and reset position
+        if(transform.position.y <= -30)
+        {
+            health -= 10;
+            transform.position = new Vector3(0, 2, 0);
+            if (health <= 0)
+                TriggerGameOver();
+        }
 	}
 
 	//Triggers when the Plyaer runs into an enemy (doesn't trigger when an enemy runs into the player)
@@ -54,7 +63,8 @@ public class PlayerCollisions : MonoBehaviour {
 			else
 			{
 				Destroy(col.gameObject);
-				enemyManager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+                //enemyManager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+                enemyManager.RegisterDeath();
 			}
         }
     }
@@ -67,9 +77,13 @@ public class PlayerCollisions : MonoBehaviour {
 
         //Kill the Player if out of health
         if (health <= 0)
-        {
-            gameOverScreen.SetActive(true);
-            gameOverScreen.GetComponentInChildren<Text>().text = "Score: " + this.GetComponent<ScoreManager>().score;
-        }
+            TriggerGameOver();
 	}
+
+    //
+    void TriggerGameOver()
+    {
+        gameOverScreen.SetActive(true);
+        gameOverScreen.GetComponentInChildren<Text>().text = "Score: " + this.GetComponent<ScoreManager>().score;
+    }
 }

@@ -9,6 +9,10 @@ public class RaycastWeapon : WeaponScript {
 	public float range;
 	public float force;
 
+	public override bool CanFire(PlayerWeaponHandler weaponHandler)
+	{
+		return true;
+	}
 	public override void FireWeapon(PlayerWeaponHandler weaponHandler)
 	{
 		weaponHandler.RaycastFire(damage, range, force);
