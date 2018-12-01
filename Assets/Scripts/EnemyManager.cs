@@ -100,6 +100,7 @@ public class EnemyManager : MonoBehaviour {
 	{
 		enemiesSpawned = 0;
 		float increase = waveSize * 1.5f;
+        increase = Mathf.Round(increase);
 		if (increase < minimumWaveIncrease)
 		{
 			increase = minimumWaveIncrease;
