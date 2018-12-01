@@ -16,7 +16,29 @@ public class EnemyManager : MonoBehaviour {
 
 	private List<float> spawnPriority;
 	private int waveSize;
-	private int enemiesLeft;
+    public int WaveSize
+    {
+        get
+        {
+            return waveSize;
+        }
+    }
+    private int waveNumber;
+    public int WaveNumber
+    {
+        get
+        {
+            return waveNumber;
+        }
+    }
+    private int enemiesLeft;
+    public int EnemiesLeft
+    {
+        get
+        {
+            return enemiesLeft;
+        }
+    }
 	private int enemiesSpawned;
 
 	// Use this for initialization
@@ -26,6 +48,7 @@ public class EnemyManager : MonoBehaviour {
 		{
 			maximumWaveIncrese = 0;
 		}
+        waveNumber = 1;
 		waveSize = startingWaveSize;
 		enemiesLeft = waveSize;
 		enemiesSpawned = 0;
@@ -87,10 +110,13 @@ public class EnemyManager : MonoBehaviour {
 		}
 		waveSize += (int)increase;
 		enemiesLeft = waveSize;
-	}
+        waveNumber++;
+        GameObject.Find("Player").GetComponent<ScoreManager>().UpdateScore();
+    }
     public void RegisterDeath()
     {
 		enemiesLeft -= 1;
         enemySpawns[Random.Range(0, enemySpawns.Count)].spawnedEnemies -= 1;
+        GameObject.Find("Player").GetComponent<ScoreManager>().UpdateScore();
     }
 }
