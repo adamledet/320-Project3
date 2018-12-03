@@ -41,6 +41,7 @@ public class EnemyManager : MonoBehaviour {
     }
 	private int enemiesSpawned;
 
+    private float lowest;
 	// Use this for initialization
 	void Start ()
     {
@@ -57,6 +58,7 @@ public class EnemyManager : MonoBehaviour {
 		{
 			spawnPriority.Add(0);
 		}
+        lowest = -spawnRate;
 	}
 	
 	// Update is called once per frame
@@ -73,7 +75,6 @@ public class EnemyManager : MonoBehaviour {
 			int index = 0;
 			for(int i = 0; i < spawnAreas.Count; i++)
 			{
-				//at 60fps the spawn rate increses by 6% every second
 				spawnPriority[i] += Time.deltaTime;
 				//i would like to add the distance to the player to this will do it later
 				if(spawnPriority[i] > highest)
@@ -82,9 +83,12 @@ public class EnemyManager : MonoBehaviour {
 					index = i;
 				}
 			}
-			Instantiate(enemy, spawnAreas[index].GetRandomPointInArea(), Quaternion.identity);
-			enemiesSpawned++;
-			spawnPriority[index] = 0;
+            if (highest > 1.5f)
+            {
+                Instantiate(enemy, spawnAreas[index].GetRandomPointInArea(), Quaternion.identity);
+                enemiesSpawned++;
+                spawnPriority[index] = -5;
+            }
 		}
 	}
 
@@ -113,6 +117,11 @@ public class EnemyManager : MonoBehaviour {
 		enemiesLeft = waveSize;
         waveNumber++;
         GameObject.Find("Player").GetComponent<ScoreManager>().UpdateScore();
+        for(int i = 0; i < spawnAreas.Count; i++)
+        {
+            spawnPriority[i] = 0;
+        }
+        lowest += spawnRate / 2;
     }
     public void RegisterDeath()
     {
