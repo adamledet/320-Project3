@@ -31,8 +31,9 @@ public class PlayerWeaponHandler : MonoBehaviour {
 			}
 		}
 	}
-
 	private float mana;
+
+
 	private void Awake()
 	{
 		fpsCamera = Camera.main;
@@ -63,26 +64,29 @@ public class PlayerWeaponHandler : MonoBehaviour {
 
 	void Update()
 	{
-		//Mana Regeneration
-		if (mana < maxMana)
-		{
-			mana += manaRegenRate;
-		}
-		else
-		{
-			mana = maxMana;
-		}
+        if(!GetComponent<PlayerCollisions>().IsPaused && !GetComponent<PlayerCollisions>().gameOverScreen.activeSelf)
+        {
+            //Mana Regeneration
+            if (mana < maxMana)
+            {
+                mana += manaRegenRate;
+            }
+            else
+            {
+                mana = maxMana;
+            }
 
-		manaMeter.value = mana;
+            manaMeter.value = mana;
 
 
-		if (Input.GetButtonDown("Fire1") && weapon.CanFire(this))//Pistol Fire
-		{
-			weapon.FireWeapon(this);
-		}
-		if (Input.GetButtonDown("Fire2") && spell.CanFire(this))//Force Push
-		{
-			spell.FireWeapon(this);
-		}
+            if (Input.GetButtonDown("Fire1") && weapon.CanFire(this))//Pistol Fire
+            {
+                weapon.FireWeapon(this);
+            }
+            if (Input.GetButtonDown("Fire2") && spell.CanFire(this))//Force Push
+            {
+                spell.FireWeapon(this);
+            }
+        }
 	}
 }

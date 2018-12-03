@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisions : MonoBehaviour {
 
@@ -24,14 +25,28 @@ public class PlayerCollisions : MonoBehaviour {
     }
     private int health;
 
-	// Use this for initialization
-	void Start ()
+    //Pause Variable
+    private bool isPaused;
+    public bool IsPaused
     {
+        get
+        {
+            return isPaused;
+        }
+    }
+    public GameObject pauseScreen;
+
+
+    // Use this for initialization
+    void Start ()
+    {
+        Time.timeScale = 1;
 		health = maxHealth;
 		healthBar.maxValue = maxHealth;
 		//we should make enemy manager a singleton
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
-	}
+        isPaused = false;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -46,7 +61,39 @@ public class PlayerCollisions : MonoBehaviour {
             if (health <= 0)
                 TriggerGameOver();
         }
-	}
+
+        //P button works as Pause or Restart
+        if (Input.GetKeyDown("p"))
+        {
+            //Pause / Unpause while alive
+            if(health > 0)
+            {
+                isPaused = !isPaused;
+                if (isPaused)
+                {
+                    pauseScreen.SetActive(true);
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    pauseScreen.SetActive(false);
+                    Time.timeScale = 1;
+                }
+            }
+
+            //Restart while dead
+            else if(gameOverScreen.activeSelf)
+            {
+                SceneManager.LoadScene("Game");
+            }
+        }
+
+        //Exit to Main Menu if game is Paused or if Game Over
+        if ((Input.GetKeyDown("q") && isPaused) || (gameOverScreen.activeSelf && Input.GetKeyDown("q")))
+        {
+            SceneManager.LoadScene("TitleScreen");
+        }
+    }
 
 	//Triggers when the Plyaer runs into an enemy (doesn't trigger when an enemy runs into the player)
 	void OnControllerColliderHit(ControllerColliderHit col)
@@ -85,5 +132,6 @@ public class PlayerCollisions : MonoBehaviour {
     {
         gameOverScreen.SetActive(true);
         gameOverScreen.GetComponentInChildren<Text>().text = "Score: " + this.GetComponent<ScoreManager>().score;
+        Time.timeScale = 0;
     }
 }
