@@ -87,6 +87,8 @@ public class PlayerWeaponHandler : MonoBehaviour {
             {
                 spell.FireWeapon(this);
             }
+
+            weapon.UpdateCooldown(Time.deltaTime);
         }
 	}
 }

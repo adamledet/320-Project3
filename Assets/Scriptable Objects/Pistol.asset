@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c08060bd2b3f1e41bf473840b308ccb, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
+  baseCooldown: 0.2
   damage: 1
   range: 1000
   force: 0
