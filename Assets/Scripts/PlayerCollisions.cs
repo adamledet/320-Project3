@@ -63,7 +63,7 @@ public class PlayerCollisions : MonoBehaviour {
         }
 
         //P button works as Pause or Restart
-        if (Input.GetKeyDown("p"))
+        if (Input.GetKeyDown("escape"))
         {
             //Pause / Unpause while alive
             if(health > 0)
