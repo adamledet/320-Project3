@@ -48,6 +48,27 @@ public class PlayerCollisions : MonoBehaviour {
         isPaused = false;
     }
 	
+    public void Pause()
+    {
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            pauseScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            this.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            pauseScreen.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            this.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+            Time.timeScale = 1;
+        }
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -68,23 +89,7 @@ public class PlayerCollisions : MonoBehaviour {
             //Pause / Unpause while alive
             if(health > 0)
             {
-                isPaused = !isPaused;
-                if (isPaused)
-                {
-                    pauseScreen.SetActive(true);
-					Cursor.lockState = CursorLockMode.None;
-					Cursor.visible = true;
-					this.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
-					Time.timeScale = 0;
-                }
-                else
-                {
-                    pauseScreen.SetActive(false);
-					Cursor.lockState = CursorLockMode.Locked;
-					Cursor.visible = false;
-					this.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
-					Time.timeScale = 1;
-                }
+                Pause();
             }
 
             //Restart while dead
