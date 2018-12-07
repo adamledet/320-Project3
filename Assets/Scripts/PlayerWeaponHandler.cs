@@ -10,7 +10,8 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	private Camera fpsCamera;
 
 	public WeaponScript weapon;
-	public WeaponScript spell;
+	public WeaponScript shieldSpell;
+    public WeaponScript firebalSpell;
 
 	//Mana Attributes
 	public float maxMana;
@@ -112,14 +113,18 @@ public class PlayerWeaponHandler : MonoBehaviour {
 				{
 					weapon.FireWeapon(this);
 				}
-				if (Input.GetButtonDown("Fire2") && spell.CanFire(this))//Force Push
+				if (Input.GetButtonDown("Fire2") && shieldSpell.CanFire(this))//Force Push
 				{
-					spell.FireWeapon(this);
+                    shieldSpell.FireWeapon(this);
 				}
-				if (Input.GetButtonDown("Reload"))
+				if (Input.GetButtonDown("Reload"))//Reload
 				{
 					reloadTime = reloadRate;
 				}
+                if(Input.GetButtonDown("Fireball") && firebalSpell.CanFire(this))//Fireball
+                {
+                    firebalSpell.FireWeapon(this);
+                }
 			}
 
             weapon.UpdateCooldown(Time.deltaTime);
