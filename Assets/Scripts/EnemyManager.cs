@@ -114,6 +114,7 @@ public class EnemyManager : MonoBehaviour {
 			increase = maximumWaveIncrese;
 		}
 		waveSize += (int)increase;
+        maxActiveEnemies += (int)(increase / 2);
 		enemiesLeft = waveSize;
         waveNumber++;
         GameObject.Find("Player").GetComponent<ScoreManager>().UpdateScore();
