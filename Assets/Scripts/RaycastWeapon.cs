@@ -11,11 +11,12 @@ public class RaycastWeapon : WeaponScript {
 
 	public override bool CanFire(PlayerWeaponHandler weaponHandler)
 	{
-        return cooldown <= 0;
+        return (cooldown <= 0&&weaponHandler.Ammo > 0);
 	}
 	public override void FireWeapon(PlayerWeaponHandler weaponHandler)
 	{
 		weaponHandler.RaycastFire(damage, range, force);
-        cooldown = baseCooldown;
+		weaponHandler.Ammo -= 1;
+		cooldown = baseCooldown;
 	}
 }

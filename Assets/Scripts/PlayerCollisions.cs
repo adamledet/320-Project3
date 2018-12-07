@@ -72,12 +72,18 @@ public class PlayerCollisions : MonoBehaviour {
                 if (isPaused)
                 {
                     pauseScreen.SetActive(true);
-                    Time.timeScale = 0;
+					Cursor.lockState = CursorLockMode.None;
+					Cursor.visible = true;
+					this.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+					Time.timeScale = 0;
                 }
                 else
                 {
                     pauseScreen.SetActive(false);
-                    Time.timeScale = 1;
+					Cursor.lockState = CursorLockMode.Locked;
+					Cursor.visible = false;
+					this.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+					Time.timeScale = 1;
                 }
             }
 

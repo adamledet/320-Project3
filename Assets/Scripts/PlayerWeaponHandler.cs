@@ -32,7 +32,27 @@ public class PlayerWeaponHandler : MonoBehaviour {
 		}
 	}
 	private float mana;
-
+	public Text ammoText;
+	public int maxAmmo;
+	public int Ammo
+	{
+		get
+		{
+			return ammo;
+		}
+		set
+		{
+			ammo = value;
+			if (ammo > maxAmmo)
+			{
+				ammo = maxAmmo;
+			}
+			UpdateAmmoText();
+		}
+	}
+	private int ammo;
+	public float reloadRate;
+	private float reloadTime;
 
 	private void Awake()
 	{
@@ -43,8 +63,9 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	{
 		mana = maxMana;
 		manaMeter.maxValue = maxMana;
+		ammo = maxAmmo;
+		UpdateAmmoText();
 	}
-
 
 	public void RaycastFire(int damage, float range, float force)
 	{
@@ -77,18 +98,35 @@ public class PlayerWeaponHandler : MonoBehaviour {
             }
 
             manaMeter.value = mana;
-
-
-            if (Input.GetButtonDown("Fire1") && weapon.CanFire(this))//Pistol Fire
-            {
-                weapon.FireWeapon(this);
-            }
-            if (Input.GetButtonDown("Fire2") && spell.CanFire(this))//Force Push
-            {
-                spell.FireWeapon(this);
-            }
+			if (reloadTime > 0)
+			{
+				reloadTime -= Time.deltaTime;
+				if(reloadTime <= 0)
+				{
+					Ammo = maxAmmo;
+				}
+			}
+			else
+			{
+				if (Input.GetButtonDown("Fire1") && weapon.CanFire(this))//Pistol Fire
+				{
+					weapon.FireWeapon(this);
+				}
+				if (Input.GetButtonDown("Fire2") && spell.CanFire(this))//Force Push
+				{
+					spell.FireWeapon(this);
+				}
+				if (Input.GetButtonDown("Reload"))
+				{
+					reloadTime = reloadRate;
+				}
+			}
 
             weapon.UpdateCooldown(Time.deltaTime);
         }
+	}
+	private void UpdateAmmoText()
+	{
+		ammoText.text = ammo + "/"+maxAmmo;
 	}
 }
