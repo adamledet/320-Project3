@@ -15,7 +15,7 @@ public class FireballSpell : WeaponScript {
 
 	public override void FireWeapon(PlayerWeaponHandler weaponHandler)
 	{
-        GameObject fireball = Instantiate(ballObj, weaponHandler.transform.position, Quaternion.identity);
+        Instantiate(ballObj, (weaponHandler.transform.position + weaponHandler.transform.forward), weaponHandler.transform.rotation);
 		weaponHandler.Mana -= manaCost;
 	}
 }

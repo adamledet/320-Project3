@@ -109,5 +109,11 @@ public class EnemyController : MonoBehaviour {
 		{
 			col.gameObject.GetComponent<PlayerCollisions>().CollideWithEnemy(this);
 		}
+
+        if(col.gameObject.tag == "Fireball")
+        {
+            Damage(1);
+            col.gameObject.GetComponent<FireballMovement>().health -= 1;
+        }
 	}
 }
