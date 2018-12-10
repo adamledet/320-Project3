@@ -54,6 +54,8 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	private int ammo;
 	public float reloadRate;
 	private float reloadTime;
+    public Slider bulletSliderL;
+    public Slider bulletSliderR;
 
 	private void Awake()
 	{
@@ -62,7 +64,9 @@ public class PlayerWeaponHandler : MonoBehaviour {
 
 	private void Start()
 	{
-		mana = maxMana;
+        bulletSliderL.maxValue = maxAmmo;
+        bulletSliderR.maxValue = maxAmmo;
+        mana = maxMana;
 		manaMeter.maxValue = maxMana;
 		ammo = maxAmmo;
 		UpdateAmmoText();
@@ -133,5 +137,40 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	private void UpdateAmmoText()
 	{
 		ammoText.text = ammo + "/"+maxAmmo;
-	}
+        if(ammo == 6)
+        {
+            bulletSliderL.value = bulletSliderL.maxValue;
+            bulletSliderR.value = bulletSliderR.maxValue;
+        }
+        else if (ammo == 5)
+        {
+            bulletSliderL.value = bulletSliderL.maxValue;
+            bulletSliderR.value = 3.75f;
+        }
+        else if (ammo == 4)
+        {
+            bulletSliderL.value = bulletSliderL.maxValue;
+            bulletSliderR.value = 1.75f;
+        }
+        else if (ammo == 3)
+        {
+            bulletSliderL.value = bulletSliderL.maxValue;
+            bulletSliderR.value = 0;
+        }
+        else if (ammo == 2)
+        {
+            bulletSliderL.value = 3.75f;
+            bulletSliderR.value = 0;
+        }
+        else if (ammo == 1)
+        {
+            bulletSliderL.value = 1.75f;
+            bulletSliderR.value = 0;
+        }
+        else if (ammo == 0)
+        {
+            bulletSliderL.value = 0;
+            bulletSliderR.value = 0;
+        }
+    }
 }
