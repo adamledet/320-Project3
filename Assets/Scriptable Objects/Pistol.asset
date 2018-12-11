@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   baseCooldown: 0.5
+  WeaponSounds:
+  - {fileID: 8300000, guid: ec34edceb8bcacf408e070ee26f82c5b, type: 3}
   damage: 1
   range: 1000
   force: 0
