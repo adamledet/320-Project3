@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterController))]
 public class EnemyController : MonoBehaviour {
 
     //Target Attributes
 	private CharacterController characterController;
+	private NavMeshAgent navAgent;
 	// once we have more code for the player we might change this
 	private GameObject target;
 	//the enemies health
@@ -39,6 +41,10 @@ public class EnemyController : MonoBehaviour {
         health = 1;
 		KnockBack = Vector3.zero;
 		characterController = GetComponent<CharacterController>();
+		navAgent = GetComponent<NavMeshAgent>();
+		navAgent.updatePosition = false;
+		navAgent.updateRotation = false;
+		navAgent.speed = maxSpeed;
 	}
 
 	void OnEnable()
@@ -58,8 +64,10 @@ public class EnemyController : MonoBehaviour {
 		}
 		else
 		{
-			Vector3 toTarget = target.transform.position - this.transform.position;
-			Vector3 desiredVelocity = toTarget.normalized * maxSpeed;
+			//Vector3 toTarget = target.transform.position - this.transform.position;
+			//Vector3 desiredVelocity = toTarget.normalized * maxSpeed;
+			navAgent.destination = target.transform.position;
+			Vector3 desiredVelocity = navAgent.desiredVelocity;
 			if (!characterController.isGrounded)
 			{
 				desiredVelocity += Physics.gravity;

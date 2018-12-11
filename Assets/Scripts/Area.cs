@@ -11,4 +11,9 @@ public class Area : MonoBehaviour {
 		float zOffset = Random.Range(0, size.z);
 		return new Vector3(xOffset+transform.position.x,yOffset + transform.position.y, zOffset + transform.position.z);
 	}
+	private void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireCube(transform.position, size);
+	}
 }

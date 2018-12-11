@@ -127,7 +127,7 @@ public class EnemyManager : MonoBehaviour {
     public void RegisterDeath()
     {
 		enemiesLeft -= 1;
-        enemySpawns[Random.Range(0, enemySpawns.Count)].spawnedEnemies -= 1;
+        //enemySpawns[Random.Range(0, enemySpawns.Count)].spawnedEnemies -= 1;
         GameObject.Find("Player").GetComponent<ScoreManager>().UpdateScore();
     }
 }
