@@ -87,7 +87,7 @@ public class EnemyManager : MonoBehaviour {
             {
                 Instantiate(enemy, spawnAreas[index].GetRandomPointInArea(), Quaternion.identity);
                 enemiesSpawned++;
-                spawnPriority[index] = -5;
+                spawnPriority[index] = -3;
             }
 		}
 	}

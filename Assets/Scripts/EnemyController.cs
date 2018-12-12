@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour {
 			}
 			characterController.Move(desiredVelocity * Time.deltaTime);
 		}
-
+		navAgent.velocity = characterController.velocity;
         //Kill self if I fall off the edge of the map
         if (transform.position.y < -30)
             Die();
