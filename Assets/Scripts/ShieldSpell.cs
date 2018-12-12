@@ -17,6 +17,7 @@ public class ShieldSpell : WeaponScript
 	{
 		Vector3 playerPosition = weaponHandler.transform.position;
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		weaponHandler.ShieldParticales.Play();
 		foreach(GameObject target in enemies)
 		{
 			float distance = Vector3.Distance(target.transform.position, playerPosition);

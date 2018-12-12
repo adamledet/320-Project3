@@ -16,6 +16,8 @@ public class PlayerWeaponHandler : MonoBehaviour {
     public AudioSource shieldAudio;
     public AudioSource fireballAudio;
 
+	public ParticleSystem ShieldParticales;
+
     //Mana Attributes
     public float maxMana;
 	public float manaRegenRate;
@@ -179,4 +181,6 @@ public class PlayerWeaponHandler : MonoBehaviour {
             bulletSliderR.value = 0;
         }
     }
+
+
 }
