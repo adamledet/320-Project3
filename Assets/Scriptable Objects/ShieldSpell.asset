@@ -11,5 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce144d47daca3a14aae8dd6a8758ea96, type: 3}
   m_Name: ShieldSpell
   m_EditorClassIdentifier: 
+  baseCooldown: 1
+  WeaponSounds:
+  - {fileID: 8300000, guid: 1c46bd1c43c284b41bcdeab7237f79a2, type: 3}
+  - {fileID: 8300000, guid: a69e034532e64af44b8cb7826e831ab7, type: 3}
   manaCost: 25
   radius: 20

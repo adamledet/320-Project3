@@ -13,7 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCooldown: 0.5
   WeaponSounds:
-  - {fileID: 8300000, guid: ec34edceb8bcacf408e070ee26f82c5b, type: 3}
+  - {fileID: 8300000, guid: a6c7e99302b829744aa1c3830c2c9090, type: 3}
+  - {fileID: 8300000, guid: ea1c623248385ed46b0a69eba40ab6b3, type: 3}
+  - {fileID: 8300000, guid: 938544a4c0054fe48bd18ab3e634b470, type: 3}
+  - {fileID: 8300000, guid: efcfc1e8262a459449ffd2d068734a88, type: 3}
+  - {fileID: 8300000, guid: 3a24bb21c4cb1044ea299747bf6f4a05, type: 3}
   damage: 1
   range: 1000
   force: 0
