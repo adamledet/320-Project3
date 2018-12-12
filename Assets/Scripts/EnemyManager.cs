@@ -58,7 +58,7 @@ public class EnemyManager : MonoBehaviour {
 		{
 			spawnPriority.Add(0);
 		}
-        lowest = -spawnRate;
+        lowest = spawnRate;
 	}
 	
 	// Update is called once per frame
@@ -83,11 +83,11 @@ public class EnemyManager : MonoBehaviour {
 					index = i;
 				}
 			}
-            if (highest > 1.5f)
+            if (highest > lowest)
             {
                 Instantiate(enemy, spawnAreas[index].GetRandomPointInArea(), Quaternion.identity);
                 enemiesSpawned++;
-                spawnPriority[index] = -3;
+                spawnPriority[index] = -5;
             }
 		}
 	}
@@ -122,7 +122,11 @@ public class EnemyManager : MonoBehaviour {
         {
             spawnPriority[i] = 0;
         }
-        lowest += spawnRate / 2;
+        lowest -= spawnRate / 4;
+		if(lowest < spawnRate / 8)
+		{
+			lowest = spawnRate / 8;
+		}
     }
     public void RegisterDeath()
     {

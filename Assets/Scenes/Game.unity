@@ -1270,12 +1270,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.004, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &203698333 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114204234635676394, guid: 067537b22b7790549a7e81d5a7723ac1,
-    type: 2}
-  m_PrefabInternal: {fileID: 267612047}
-  m_Script: {fileID: 11500000, guid: bf67e73bc9b15274999ecd2922a5aa91, type: 3}
 --- !u!1001 &232086341
 Prefab:
   m_ObjectHideFlags: 0
@@ -2036,7 +2030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73aa9621070873b448d4cadafabe965d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 4.7, y: 0, z: 3.36}
+  size: {x: 4.7, y: 0, z: 3.09}
 --- !u!4 &441856535
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,7 +2038,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441856533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.16, y: 2.92, z: 20.9}
+  m_LocalPosition: {x: -54.23, y: 2.92, z: 20.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2679,12 +2673,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 538716925}
   m_CullTransparentMesh: 0
---- !u!114 &539503345 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114204234635676394, guid: 067537b22b7790549a7e81d5a7723ac1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1426527913}
-  m_Script: {fileID: 11500000, guid: bf67e73bc9b15274999ecd2922a5aa91, type: 3}
 --- !u!1 &547938256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,12 +3156,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &704776985 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114204234635676394, guid: 067537b22b7790549a7e81d5a7723ac1,
-    type: 2}
-  m_PrefabInternal: {fileID: 176802459}
-  m_Script: {fileID: 11500000, guid: bf67e73bc9b15274999ecd2922a5aa91, type: 3}
 --- !u!1001 &710717893
 Prefab:
   m_ObjectHideFlags: 0
@@ -4134,12 +4116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1055826339 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114204234635676394, guid: 067537b22b7790549a7e81d5a7723ac1,
-    type: 2}
-  m_PrefabInternal: {fileID: 140837690}
-  m_Script: {fileID: 11500000, guid: bf67e73bc9b15274999ecd2922a5aa91, type: 3}
 --- !u!1 &1059514419
 GameObject:
   m_ObjectHideFlags: 0
@@ -4420,11 +4396,7 @@ MonoBehaviour:
   spawnAreas:
   - {fileID: 441856534}
   - {fileID: 1589048515}
-  enemySpawns:
-  - {fileID: 704776985}
-  - {fileID: 539503345}
-  - {fileID: 1055826339}
-  - {fileID: 203698333}
+  enemySpawns: []
 --- !u!4 &1105407526
 Transform:
   m_ObjectHideFlags: 0
@@ -5703,7 +5675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73aa9621070873b448d4cadafabe965d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 4.7, y: 0, z: 3.36}
+  size: {x: 4.7, y: 0, z: 3.09}
 --- !u!4 &1589048516
 Transform:
   m_ObjectHideFlags: 0
@@ -5711,7 +5683,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589048514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.71, y: 2.92, z: 37.6}
+  m_LocalPosition: {x: -17.35, y: 2.92, z: 37.294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

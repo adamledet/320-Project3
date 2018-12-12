@@ -6,9 +6,9 @@ public class Area : MonoBehaviour {
 	public Vector3 size;
 	public Vector3 GetRandomPointInArea()
 	{
-		float xOffset = Random.Range(0, size.x);
-		float yOffset = Random.Range(0, size.y);
-		float zOffset = Random.Range(0, size.z);
+		float xOffset = Random.Range(-size.x/2, size.x/2);
+		float yOffset = Random.Range(-size.y/2, size.y/2);
+		float zOffset = Random.Range(-size.z/2, size.z/2);
 		return new Vector3(xOffset+transform.position.x,yOffset + transform.position.y, zOffset + transform.position.z);
 	}
 	private void OnDrawGizmosSelected()
