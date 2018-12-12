@@ -12,10 +12,12 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	public WeaponScript weapon;
 	public WeaponScript shieldSpell;
     public WeaponScript firebalSpell;
-	public AudioSource weaponAudio;
+	public AudioSource pistolAudio;
+    public AudioSource shieldAudio;
+    public AudioSource fireballAudio;
 
-	//Mana Attributes
-	public float maxMana;
+    //Mana Attributes
+    public float maxMana;
 	public float manaRegenRate;
 	public Slider manaMeter;
 	public float Mana
@@ -117,12 +119,12 @@ public class PlayerWeaponHandler : MonoBehaviour {
 				if (Input.GetButtonDown("Fire1") && weapon.CanFire(this))//Pistol Fire
 				{
 					weapon.FireWeapon(this);
-					weapon.PlayAudio(weaponAudio);
+					weapon.PlayAudio(pistolAudio);
 				}
 				if (Input.GetButtonDown("Fire2") && shieldSpell.CanFire(this))//Force Push
 				{
                     shieldSpell.FireWeapon(this);
-					shieldSpell.PlayAudio(weaponAudio);
+					shieldSpell.PlayAudio(shieldAudio);
 				}
 				if (Input.GetButtonDown("Reload"))//Reload
 				{
@@ -131,7 +133,7 @@ public class PlayerWeaponHandler : MonoBehaviour {
                 if(Input.GetButtonDown("Fireball") && firebalSpell.CanFire(this))//Fireball
                 {
                     firebalSpell.FireWeapon(this);
-					firebalSpell.PlayAudio(weaponAudio);
+					firebalSpell.PlayAudio(fireballAudio);
                 }
 			}
 

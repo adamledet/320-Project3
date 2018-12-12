@@ -29,7 +29,7 @@ public abstract class WeaponScript : ScriptableObject {
 			}
 			else
 			{
-				clip = WeaponSounds[Random.Range(0, WeaponSounds.Count)];
+				clip =  WeaponSounds[Random.Range(0, WeaponSounds.Count)];
 			}
 			source.clip = clip;
 			source.Play();
