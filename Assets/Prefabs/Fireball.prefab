@@ -130,9 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  movementCap: 20
-  acceleration: 0.15
+  movementCap: 45
+  acceleration: 0.25
   health: 10
+  range: 20
 --- !u!135 &135993307783911372
 SphereCollider:
   m_ObjectHideFlags: 1

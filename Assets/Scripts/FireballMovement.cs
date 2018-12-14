@@ -9,11 +9,14 @@ public class FireballMovement : MonoBehaviour {
     public float movementCap;
     public float acceleration;
     public float health;
+    public float range;
+    private Vector3 startPosition;
 
 	// Use this for initialization
 	void Start ()
     {
         characterController = GetComponent<CharacterController>();
+        startPosition = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -26,10 +29,10 @@ public class FireballMovement : MonoBehaviour {
         else
             movementSpeed = movementCap;
 
-        //Destroy Fireball when out of bounds
-        if(transform.position.x >= 50 || transform.position.x <= -50 || transform.position.z >= 50 || transform.position.z <= -50)
+        //Damage Fireball as it travels
+        if(Vector3.Distance(startPosition, transform.position) >= range)
         {
-            Destroy(this.gameObject);
+            health -= 3;
         }
 
         //Destroy Fireball after it expends its health
