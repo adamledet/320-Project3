@@ -144,7 +144,6 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	}
 	private void UpdateAmmoText()
 	{
-		ammoText.text = ammo + "/"+maxAmmo;
         if(ammo == 6)
         {
             bulletSliderL.value = bulletSliderL.maxValue;

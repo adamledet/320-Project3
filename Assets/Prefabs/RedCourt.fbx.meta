@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: b13451a857fcde24d8a02d6784bc177d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ankle_l
+    100002: ankle_r
+    100004: clavicle_l
+    100006: clavicle_r
+    100008: Controls
+    100010: elbow_l
+    100012: elbow_r
+    100014: elbowPV_l
+    100016: elbowPV_r
+    100018: fingers_l
+    100020: fingers_r
+    100022: footH_l
+    100024: footH_r
+    100026: Geo
+    100028: head
+    100030: head 1
+    100032: hip_l
+    100034: hip_r
+    100036: jaw1
+    100038: jaw2
+    100040: jawH
+    100042: knee1_l
+    100044: knee1_r
+    100046: knee1IK_l
+    100048: knee1IK_r
+    100050: knee1PV_l
+    100052: knee1PV_r
+    100054: knee2_l
+    100056: knee2_r
+    100058: knee2IK_l
+    100060: knee2IK_r
+    100062: knee2PV_l
+    100064: knee2PV_r
+    100066: neck
+    100068: neckH
+    100070: pelvis
+    100072: pelvisH
+    100074: //RootNode
+    100076: root
+    100078: shoulder_l
+    100080: shoulder_r
+    100082: spine1
+    100084: spine2
+    100086: spine2H
+    100088: toes_l
+    100090: toes_r
+    100092: wrist_l
+    100094: wrist_r
+    100096: wristH_l
+    100098: wristH_r
+    100100: wristIK_l
+    100102: wristIK_r
+    400000: ankle_l
+    400002: ankle_r
+    400004: clavicle_l
+    400006: clavicle_r
+    400008: Controls
+    400010: elbow_l
+    400012: elbow_r
+    400014: elbowPV_l
+    400016: elbowPV_r
+    400018: fingers_l
+    400020: fingers_r
+    400022: footH_l
+    400024: footH_r
+    400026: Geo
+    400028: head
+    400030: head 1
+    400032: hip_l
+    400034: hip_r
+    400036: jaw1
+    400038: jaw2
+    400040: jawH
+    400042: knee1_l
+    400044: knee1_r
+    400046: knee1IK_l
+    400048: knee1IK_r
+    400050: knee1PV_l
+    400052: knee1PV_r
+    400054: knee2_l
+    400056: knee2_r
+    400058: knee2IK_l
+    400060: knee2IK_r
+    400062: knee2PV_l
+    400064: knee2PV_r
+    400066: neck
+    400068: neckH
+    400070: pelvis
+    400072: pelvisH
+    400074: //RootNode
+    400076: root
+    400078: shoulder_l
+    400080: shoulder_r
+    400082: spine1
+    400084: spine2
+    400086: spine2H
+    400088: toes_l
+    400090: toes_r
+    400092: wrist_l
+    400094: wrist_r
+    400096: wristH_l
+    400098: wristH_r
+    400100: wristIK_l
+    400102: wristIK_r
+    2100000: lambert1
+    4300000: Geo
+    9500000: //RootNode
+    13700000: Geo
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: c4af3ecb892644244b4ad22de1ff9135, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 4
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: root
+    rootMotionBoneRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
