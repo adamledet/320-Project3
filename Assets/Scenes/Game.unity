@@ -9516,7 +9516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea17ca27f0adb8429aaace66f9b14f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1096505163234014, guid: 4020acfdf8832f840a9029a7b2325a5c, type: 2}
+  enemy: {fileID: 1145096945946654, guid: 98ae3a0205aeab243847729e162f6545, type: 2}
   startingWaveSize: 5
   minimumWaveIncrease: 5
   maximumWaveIncrese: 0
