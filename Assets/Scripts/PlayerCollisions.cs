@@ -113,16 +113,19 @@ public class PlayerCollisions : MonoBehaviour {
         if (col.gameObject.tag == "Enemy")
         {
 			EnemyController controller = col.gameObject.GetComponent<EnemyController>();
-			if (controller != null)
+			if (!controller.Dying)
 			{
-				CollideWithEnemy(controller);
-				//controller.Die();
-			}
-			else
-			{
-				Destroy(col.gameObject);
-                //enemyManager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
-                enemyManager.RegisterDeath();
+				if (controller != null)
+				{
+					CollideWithEnemy(controller);
+					//controller.Die();
+				}
+				else
+				{
+					Destroy(col.gameObject);
+					//enemyManager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+					enemyManager.RegisterDeath();
+				}
 			}
         }
     }
@@ -130,12 +133,15 @@ public class PlayerCollisions : MonoBehaviour {
 	// if we add more enemy tips we can handle different forms of collision here
 	public void CollideWithEnemy(EnemyController enemy)
 	{
-		health -= 10;
-		enemy.Die();
+        if (!enemy.Dying)
+        {
+            health -= 10;
+            enemy.Die();
 
-        //Kill the Player if out of health
-        if (health <= 0)
-            TriggerGameOver();
+            //Kill the Player if out of health
+            if (health <= 0)
+                TriggerGameOver();
+        }
 	}
 
     //
