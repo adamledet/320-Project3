@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
 	private NavMeshAgent navAgent;
 	// once we have more code for the player we might change this
 	private GameObject target;
+    private Animator animator;
 	//the enemies health
 	private int health;
 
@@ -41,7 +42,8 @@ public class EnemyController : MonoBehaviour {
         health = 1;
 		KnockBack = Vector3.zero;
 		characterController = GetComponent<CharacterController>();
-		navAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        navAgent = GetComponent<NavMeshAgent>();
 		navAgent.updatePosition = false;
 		navAgent.updateRotation = false;
 		navAgent.speed = maxSpeed;
@@ -105,7 +107,8 @@ public class EnemyController : MonoBehaviour {
             target.GetComponent<ScoreManager>().UpdateScore();
         }
 		EnemyManager manager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
-		Object.Destroy(gameObject);
+        animator.SetTrigger("Die");
+		//Object.Destroy(gameObject);
         //manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
         manager.RegisterDeath();
 	}
@@ -124,4 +127,9 @@ public class EnemyController : MonoBehaviour {
             col.gameObject.GetComponent<FireballMovement>().health -= 1;
         }
 	}
+
+    public void OnDestroy()
+    {
+        Destroy(gameObject);
+    }
 }
