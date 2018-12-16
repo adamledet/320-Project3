@@ -15,6 +15,7 @@ public class PlayerWeaponHandler : MonoBehaviour {
 	public AudioSource pistolAudio;
     public AudioSource shieldAudio;
     public AudioSource fireballAudio;
+    public AudioClip[] reloadSFX;
 
 	public ParticleSystem ShieldParticales;
 
@@ -131,6 +132,11 @@ public class PlayerWeaponHandler : MonoBehaviour {
 				if (Input.GetButtonDown("Reload"))//Reload
 				{
 					reloadTime = reloadRate;
+                    if(ammo < maxAmmo)
+                    {
+                        pistolAudio.clip = reloadSFX[Random.Range(0, reloadSFX.Length)];
+                        pistolAudio.Play();
+                    }
 				}
                 if(Input.GetButtonDown("Fireball") && firebalSpell.CanFire(this))//Fireball
                 {

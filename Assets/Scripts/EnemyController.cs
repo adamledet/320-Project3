@@ -26,6 +26,11 @@ public class EnemyController : MonoBehaviour {
 
 	private Vector3 KnockBack;
 
+    //Audio files
+    public AudioClip[] attackSounds;
+    public AudioClip[] deathSounds;
+    public AudioSource audioPlayer;
+
 	public int Health
 	{
 		get
@@ -113,6 +118,8 @@ public class EnemyController : MonoBehaviour {
     //Destroy Self. Triggered when health <= 0 or colliding /w/ Player
 	public void Die()
 	{
+        audioPlayer.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+        audioPlayer.Play();
         //If this unit is killed by having its health reduced, increase score
         if (health <= 0)
         {
@@ -125,6 +132,7 @@ public class EnemyController : MonoBehaviour {
         //manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
         manager.RegisterDeath();
         dying = true;
+
 	}
 
     //Collision /w/ Player
@@ -134,6 +142,8 @@ public class EnemyController : MonoBehaviour {
         {
             if (col.gameObject.tag == "Player")
             {
+                audioPlayer.clip = attackSounds[Random.Range(0, deathSounds.Length)];
+                audioPlayer.Play();
                 col.gameObject.GetComponent<PlayerCollisions>().CollideWithEnemy(this);
             }
 
