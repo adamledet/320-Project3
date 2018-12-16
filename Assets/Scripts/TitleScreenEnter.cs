@@ -11,6 +11,8 @@ public class TitleScreenEnter : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        audioSource.clip = clips[Random.Range(0, clips.Length)];
+        audioSource.Play();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 	}
