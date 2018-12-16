@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour {
     public AudioClip[] attackSounds;
     public AudioClip[] deathSounds;
     public AudioSource audioPlayer;
+    private bool attacking;
 
 	public int Health
 	{
@@ -62,6 +63,7 @@ public class EnemyController : MonoBehaviour {
 		navAgent.updateRotation = true;
 		navAgent.speed = maxSpeed;
         dying = false;
+        attacking = false;
 	}
 
 	void OnEnable()
@@ -118,21 +120,26 @@ public class EnemyController : MonoBehaviour {
     //Destroy Self. Triggered when health <= 0 or colliding /w/ Player
 	public void Die()
 	{
-        audioPlayer.clip = deathSounds[Random.Range(0, deathSounds.Length)];
-        audioPlayer.Play();
-        //If this unit is killed by having its health reduced, increase score
-        if (health <= 0)
+        if(!dying)//Don't register another death if already dying
         {
-            target.GetComponent<ScoreManager>().score += 1;
-            target.GetComponent<ScoreManager>().UpdateScore();
+            if(!attacking)//Play death sound only if not killed by attacking
+            {
+                audioPlayer.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+                audioPlayer.Play();
+            }
+            //If this unit is killed by having its health reduced, increase score
+            if (health <= 0)
+            {
+                target.GetComponent<ScoreManager>().score += 1;
+                target.GetComponent<ScoreManager>().UpdateScore();
+            }
+            EnemyManager manager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+            animator.SetTrigger("Die");
+            //Object.Destroy(gameObject);
+            //manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
+            manager.RegisterDeath();
+            dying = true;
         }
-		EnemyManager manager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
-        animator.SetTrigger("Die");
-		//Object.Destroy(gameObject);
-        //manager.enemySpawns[Random.Range(0, 4)].GetComponent<SpawnEnemies>().spawnedEnemies -= 1;
-        manager.RegisterDeath();
-        dying = true;
-
 	}
 
     //Collision /w/ Player
@@ -142,6 +149,7 @@ public class EnemyController : MonoBehaviour {
         {
             if (col.gameObject.tag == "Player")
             {
+                attacking = true;
                 audioPlayer.clip = attackSounds[Random.Range(0, deathSounds.Length)];
                 audioPlayer.Play();
                 col.gameObject.GetComponent<PlayerCollisions>().CollideWithEnemy(this);

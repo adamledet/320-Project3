@@ -1668,14 +1668,13 @@ MonoBehaviour:
   attackSounds:
   - {fileID: 8300000, guid: ae67a9c034bbca9499aed13819b09597, type: 3}
   - {fileID: 8300000, guid: 8e3906bed819ab94980f0617a4f9235d, type: 3}
-  - {fileID: 8300000, guid: 8e3906bed819ab94980f0617a4f9235d, type: 3}
   deathSounds:
   - {fileID: 8300000, guid: c38253f29ea2f944cb167a773012dbfc, type: 3}
   - {fileID: 8300000, guid: 71e9e1a935089fe4980389394c632b22, type: 3}
   - {fileID: 8300000, guid: d4c0ee2d937d5c84ab829e66738517a1, type: 3}
   audioPlayer: {fileID: 82730681182121502}
   maxHealth: 0
-  maxSpeed: 5
+  maxSpeed: 7
 --- !u!136 &136386827755807586
 CapsuleCollider:
   m_ObjectHideFlags: 1

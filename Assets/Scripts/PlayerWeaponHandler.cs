@@ -16,6 +16,7 @@ public class PlayerWeaponHandler : MonoBehaviour {
     public AudioSource shieldAudio;
     public AudioSource fireballAudio;
     public AudioClip[] reloadSFX;
+    public AudioClip[] outOfAmmoSFX;
 
 	public ParticleSystem ShieldParticales;
 
@@ -124,6 +125,11 @@ public class PlayerWeaponHandler : MonoBehaviour {
 					weapon.FireWeapon(this);
 					weapon.PlayAudio(pistolAudio);
 				}
+                else if(Input.GetButtonDown("Fire1") && ammo <=0)//Play 'Out of Ammo' when such is true
+                {
+                    pistolAudio.clip = outOfAmmoSFX[Random.Range(0, outOfAmmoSFX.Length)];
+                    pistolAudio.Play();
+                }
 				if (Input.GetButtonDown("Fire2") && shieldSpell.CanFire(this))//Force Push
 				{
                     shieldSpell.FireWeapon(this);

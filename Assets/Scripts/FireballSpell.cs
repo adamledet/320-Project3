@@ -13,7 +13,12 @@ public class FireballSpell : WeaponScript {
 		return weaponHandler.Mana >= manaCost;
 	}
 
-	public override void FireWeapon(PlayerWeaponHandler weaponHandler)
+    public bool InsufficientMana(PlayerWeaponHandler weaponHandler)
+    {
+        return weaponHandler.Mana <= manaCost;
+    }
+
+    public override void FireWeapon(PlayerWeaponHandler weaponHandler)
 	{
         Instantiate(ballObj, (weaponHandler.transform.position + weaponHandler.transform.forward), weaponHandler.transform.rotation);
 		weaponHandler.Mana -= manaCost;

@@ -15,4 +15,4 @@ MonoBehaviour:
   WeaponSounds:
   - {fileID: 8300000, guid: f64b2e4a61c566a4abb774f185d11d5c, type: 3}
   manaCost: 25
-  radius: 10
+  radius: 20
