@@ -147,6 +147,8 @@ public class PlayerCollisions : MonoBehaviour {
     //
     void TriggerGameOver()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         gameOverScreen.SetActive(true);
         gameOverScreen.GetComponentInChildren<Text>().text = "Score: " + this.GetComponent<ScoreManager>().score;
         Time.timeScale = 0;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10288,7 +10288,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441856533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -71.54, y: 1.35, z: -15.04}
+  m_LocalPosition: {x: -341, y: 1.2, z: 19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46303,7 +46303,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589048514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70.11, y: 3.1, z: 18.82}
+  m_LocalPosition: {x: -482.74, y: 1.2, z: -14.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59594,6 +59594,12 @@ MonoBehaviour:
   pistolAudio: {fileID: 2072836205}
   shieldAudio: {fileID: 2072836204}
   fireballAudio: {fileID: 2072836203}
+  reloadSFX:
+  - {fileID: 8300000, guid: 53029d19cfe7a71458546c5e0ebffc30, type: 3}
+  - {fileID: 8300000, guid: a6e3bf69a2414ca4782f5dc6b9c114a2, type: 3}
+  - {fileID: 8300000, guid: 90c45ae261d7d734093b699bb8c41919, type: 3}
+  - {fileID: 8300000, guid: 43b00788868d4d84885b79bc7ff4c54a, type: 3}
+  - {fileID: 8300000, guid: 97fc6e0fcd681dd4d85f42e0443589f1, type: 3}
   ShieldParticales: {fileID: 641391714}
   maxMana: 100
   manaRegenRate: 0.16

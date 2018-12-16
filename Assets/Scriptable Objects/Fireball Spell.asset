@@ -13,7 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCooldown: 3
   WeaponSounds:
-  - {fileID: 8300000, guid: 52f6975d496e2b04e8471e0a8af4464c, type: 3}
-  - {fileID: 8300000, guid: 6557293da4016e64cb8a0fac334bf3ab, type: 3}
+  - {fileID: 8300000, guid: 96d45c36e1612744099f5c6042216e60, type: 3}
   manaCost: 50
   ballObj: {fileID: 1113167909670692, guid: 4ed8f57598b316140a1a8c8a6987e9b1, type: 2}
