@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour {
     public AudioClip[] deathSounds;
     public AudioSource audioPlayer;
     private bool attacking;
+	private float synchNav;
 
 	public int Health
 	{
@@ -64,6 +65,7 @@ public class EnemyController : MonoBehaviour {
 		navAgent.speed = maxSpeed;
         dying = false;
         attacking = false;
+		synchNav = 0;
 	}
 
 	void OnEnable()
@@ -95,7 +97,13 @@ public class EnemyController : MonoBehaviour {
                 }
                 characterController.Move(desiredVelocity * Time.deltaTime);
             }
-            navAgent.velocity = characterController.velocity;
+			synchNav += Time.deltaTime;
+			if(synchNav >= 1.5f)
+			{
+				navAgent.nextPosition = transform.position;
+				synchNav = 0;
+			}
+			navAgent.velocity = characterController.velocity;
             //Kill self if I fall off the edge of the map
             if (transform.position.y < -30)
                 Die();
